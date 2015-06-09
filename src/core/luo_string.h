@@ -60,4 +60,25 @@ typedef struct {
 // 查找字符串s中首次出现字符c的位置
 #define luo_strchr(s, c) strchr((const char *) s, (int) c)
 
+/* 内存操作 */
+// 将buf所指向的内存中的前n个字节的内容全部设置为0
+#define luo_memzero(buf, n) (void) memset(buf, 0, n)
+// 将buf所指向的内存中的前n个字节的内容全部设置为c
+#define luo_memset(buf, c, n) (void) memset(buf, c, n)
+
+// 由src所指内存区域复制n个字节到dst所指内存区域
+#define luo_memcpy(dst, src, n) (void) memcpy(dst, src, n)
+// 复制内存 返回复制完了dst的最后一个字符的下一个字符的指针
+#define luo_cpymem(dst, src, n) (((u_char *) memcpy(dst, src, n)) + (n))
+// luo_cpymem 别名
+#define luo_copy luo_cpymem
+
+// 从src拷贝n个字符到dst
+#define luo_memmove(dst, src, n) (void) memmove(dst, src, n)
+// 从src拷贝n个字符到dst 返回复制完了dst的最后一个字符的下一个字符的指针
+#define luo_movemem(des, src, n) (((u_char *) memmove(dst, src, n)) + (n))
+
+// 比较内存区域s1和s2的前n个字节
+#define luo_memcmp(s1, s2, n) memcmp((const char *) s1, (const char *) s2, n)
+
 #endif
