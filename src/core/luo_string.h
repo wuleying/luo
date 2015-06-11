@@ -1,7 +1,7 @@
 #ifndef _LUO_STRING_H_INCLUDED_
 #define _LUO_STRING_H_INCLUDED_
 
-#include <luo_config.h>
+#include "luo_config.h"
 
 // 字符串
 typedef struct {
