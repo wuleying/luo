@@ -3,7 +3,6 @@
 
 #include "luo_config.h"
 
-
 #include "luo_string.h"
 
 #endif
