@@ -4,12 +4,14 @@
 
 int main()
 {
-	//luo_str_t *str;
-	//luo_str_set(str, "hello world");
+	//luo_str_t str;
+	//str = (luo_str_t) luo_string("hello world");
 
-	//printf("%zu\n%s", str->len, str->data);
+	luo_str_t str;
 
-	printf("%s", "OK");
+	luo_str_set(&str, "hello world");
+
+	printf("%zu\n%s", str.len, str.data);
 
 	return 0;
 }

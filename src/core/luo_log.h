@@ -21,4 +21,4 @@ struct luo_log_s {
 	luo_log_t *next;
 };
 
-#endif
+#endif /* _LUO_LOG_H_INCLUDED_ */

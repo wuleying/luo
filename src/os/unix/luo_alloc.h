@@ -16,8 +16,8 @@ void *luo_calloc(size_t size, luo_log_t *log);
 #define luo_memalign(alignment, size, log) luo_alloc(size, log)
 
 // todo
-//extern luo_uint_t luo_pagesize;
-//extern luo_uint_t luo_pagesize_shift;
-//extern luo_uint_t luo_cacheline_size;
+extern luo_uint_t luo_pagesize;
+extern luo_uint_t luo_pagesize_shift;
+extern luo_uint_t luo_cacheline_size;
 
 #endif /* _LUO_ALLOC_H_INCLUDED_ */

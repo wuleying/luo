@@ -4,4 +4,4 @@
 #define LUO_VERSION "1.0.0"
 #define LUO_VER "luo/" LUO_VERSION
 
-#endif
+#endif /* _LUO_H_INCLUDED_ */

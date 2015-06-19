@@ -7,4 +7,6 @@ typedef intptr_t luo_int_t;
 typedef uintptr_t luo_uint_t;
 typedef intptr_t luo_flag_t;
 
-#endif
+#define luo_align(d, a) (((d) + (a - 1)) & ~(a - 1))
+
+#endif /* _LUO_CONFIG_H_INCLUDED_ */

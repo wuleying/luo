@@ -81,4 +81,4 @@ typedef struct {
 // 比较内存区域s1和s2的前n个字节
 #define luo_memcmp(s1, s2, n) memcmp((const char *) s1, (const char *) s2, n)
 
-#endif
+#endif /* _LUO_STRING_H_INCLUDED_ */
