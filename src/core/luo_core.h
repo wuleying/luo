@@ -9,8 +9,10 @@ typedef struct luo_chain_s luo_chain_t;
 
 #include "luo_string.h"
 #include "luo_log.h"
-#include "luo_palloc.h"
 
 #include "./../os/unix/luo_alloc.h"
 #include "./../os/unix/luo_files.h"
+
+#include "luo_palloc.h"
+
 #endif

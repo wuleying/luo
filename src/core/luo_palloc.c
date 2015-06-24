@@ -125,3 +125,88 @@ luo_palloc(luo_pool_t *pool, size_t size)
 
 	return luo_palloc_large(pool, size);
 }
+
+void *
+luo_palloc_block(luo_pool_t *pool, size_t size)
+{
+	u_char *m;
+	size_t psize;
+	luo_pool_t *p, *new;
+
+	psize = (size_t) (pool->d.end - (u_char *) pool);
+
+	m = luo_memalign(LUO_POOL_ALIGNMENT, psize, pool->log);
+
+	if(m == NULL)
+	{
+		return NULL;
+	}
+
+	new = (luo_pool_t *) m;
+
+	new->d.end = m + psize;
+	new->d.next = NULL;
+	new->d.failed = 0;
+
+	m += sizeof(luo_pool_data_t);
+	m = luo_align_ptr(m, LUO_ALIGNMENT);
+
+	new->d.last = m + size;
+
+	for(p = pool->current; p->d.next; p = p->d.next)
+	{
+		if(p->d.failed++ > 4)
+		{
+			pool->current = p->d.next;
+		}
+	}
+
+	p->d.next = new;
+
+	return m;
+}
+
+void *
+luo_palloc_large(luo_pool_t *pool, size_t size)
+{
+	void *p;
+	luo_uint_t n;
+	luo_pool_large_t *large;
+
+	p = luo_alloc(size, pool->log);
+
+	if(p == NULL)
+	{
+		return NULL;
+	}
+
+	n = 0;
+
+	for(large = pool->large; large; large = large->next)
+	{
+		if(large->alloc == NULL)
+		{
+			large->alloc = p;
+			return p;
+		}
+
+		if(n++ > 3)
+		{
+			break;
+		}
+	}
+
+	large = luo_palloc(pool, sizeof(luo_pool_large_t));
+
+	if(large == NULL)
+	{
+		luo_free(p);
+		return NULL;
+	}
+
+	large->alloc = p;
+	large->next = pool->large;
+	pool->large = large;
+
+	return p;
+}
