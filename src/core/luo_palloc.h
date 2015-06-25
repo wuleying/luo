@@ -26,6 +26,12 @@ typedef struct {
 	luo_uint_t 			 failed;
 } luo_pool_data_t;
 
+typedef struct {
+	luo_fd_t			 fd;
+	u_char 				*name;
+	luo_log_t 			*log;
+} luo_pool_cleanup_file_t;
+
 struct luo_pool_large_s {
 	luo_pool_large_t 	*next;
 	void 				*alloc;
@@ -35,12 +41,6 @@ struct luo_pool_cleanup_s {
 	luo_pool_cleanup_pt handler;
 	void 				*data;
 	luo_pool_cleanup_t 	*next;
-};
-
-struct luo_pool_cleanup_file_t {
-	luo_fd_t			 fd;
-	u_char 				*name;
-	luo_log_t 			*log;
 };
 
 // 内存池结构体
@@ -71,8 +71,8 @@ void *luo_pmemalign(luo_pool_t *pool, size_t size, size_t alignment);
 luo_int_t luo_pfree(luo_pool_t *pool, void *p);
 
 luo_pool_cleanup_t *luo_cleanup_pool_add(luo_pool_t *pool, size_t size);
-void *luo_pool_run_cleanup_file(luo_pool_t *pool, luo_fd_t fd);
-void *luo_pool_cleanup_file(void *data);
-void *luo_pool_delete_file(void *data);
+void luo_pool_run_cleanup_file(luo_pool_t *pool, luo_fd_t fd);
+void luo_pool_cleanup_file(void *data);
+void luo_pool_delete_file(void *data);
 
 #endif /* _LUO_LOG_H_INCLUDED_ */

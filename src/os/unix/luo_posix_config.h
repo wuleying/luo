@@ -17,5 +17,20 @@
 #include <dirent.h>
 #include <glob.h>
 #include <time.h>
+#include <sys/ioctl.h>
+#include <sys/uio.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <sys/wait.h>
+#include <sys/mman.h>
+#include <sys/resource.h>
+#include <sched.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <arpa/inet.h>
+#include <netdb.h>
+#include <sys/un.h>
+#include <unistd.h>
 
 #endif /* _LUO_POSIX_CONFIG_H_INCLUDED_ */

@@ -3,4 +3,10 @@
 
 typedef int luo_fd_t;
 
+#define LUO_INVALID_FILE		-1
+#define LUO_FILE_ERROR			-1
+
+#define luo_close_file 			close
+#define luo_close_file_n 		"close()"
+
 #endif
