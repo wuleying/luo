@@ -14,44 +14,49 @@
 	luo_align((sizeof(luo_pool_t) + 2 * sizeof(luo_pool_large_t)), 		\
 			LUO_POOL_ALIGNMENT)
 
-typedef void(*luo_pool_cleanup_pt)(void *data);
+typedef void (*luo_pool_cleanup_pt)(void *data);
 
 typedef struct luo_pool_large_s luo_pool_large_t;
 typedef struct luo_pool_cleanup_s luo_pool_cleanup_t;
 
-typedef struct {
-	u_char 				*last;
-	u_char 				*end;
-	luo_pool_t 			*next;
-	luo_uint_t 			 failed;
+typedef struct
+{
+	u_char *last;
+	u_char *end;
+	luo_pool_t *next;
+	luo_uint_t failed;
 } luo_pool_data_t;
 
-typedef struct {
-	luo_fd_t			 fd;
-	u_char 				*name;
-	luo_log_t 			*log;
+typedef struct
+{
+	luo_fd_t fd;
+	u_char *name;
+	luo_log_t *log;
 } luo_pool_cleanup_file_t;
 
-struct luo_pool_large_s {
-	luo_pool_large_t 	*next;
-	void 				*alloc;
+struct luo_pool_large_s
+{
+	luo_pool_large_t *next;
+	void *alloc;
 };
 
-struct luo_pool_cleanup_s {
+struct luo_pool_cleanup_s
+{
 	luo_pool_cleanup_pt handler;
-	void 				*data;
-	luo_pool_cleanup_t 	*next;
+	void *data;
+	luo_pool_cleanup_t *next;
 };
 
 // 内存池结构体
-struct luo_pool_s {
-	luo_pool_data_t 	 d;
-	size_t 				 max;
-	luo_pool_t 			*current;
-	luo_chain_t 		*chain;
-	luo_pool_large_t 	*large;
-	luo_pool_cleanup_t 	*cleanup;
-	luo_log_t 			*log;
+struct luo_pool_s
+{
+	luo_pool_data_t d;
+	size_t max;
+	luo_pool_t *current;
+	luo_chain_t *chain;
+	luo_pool_large_t *large;
+	luo_pool_cleanup_t *cleanup;
+	luo_log_t *log;
 };
 
 void *luo_alloc(size_t size, luo_log_t *log);

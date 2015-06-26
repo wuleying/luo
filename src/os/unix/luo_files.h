@@ -9,4 +9,7 @@ typedef int luo_fd_t;
 #define luo_close_file 			close
 #define luo_close_file_n 		"close()"
 
+#define luo_delete_file(name)	unlink((const char *) name)
+#define luo_delete_file_n		"unlink()"
+
 #endif

@@ -17,6 +17,7 @@ typedef struct luo_chain_s luo_chain_t;
 
 #include "./../os/unix/luo_alloc.h"
 #include "./../os/unix/luo_files.h"
+#include "../os/unix/luo_errno.h"
 
 #include "luo_string.h"
 #include "luo_log.h"
