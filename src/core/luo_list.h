@@ -28,9 +28,12 @@ typedef struct
 // 创建链表
 luo_list_t *luo_list_create(luo_pool_t *pool, luo_uint_t n, size_t size);
 
+// 添加链表元素
+void *luo_list_push(luo_list_t *list);
+
 // 初始化链表
-static luo_inline luo_int_t luo_list_init(luo_list_t *list, luo_pool_t *pool,
-		luo_uint_t n, size_t size)
+static luo_inline luo_int_t
+luo_list_init(luo_list_t *list, luo_pool_t *pool, luo_uint_t n, size_t size)
 {
 	list->part.elts = luo_palloc(pool, n * size);
 
@@ -48,8 +51,5 @@ static luo_inline luo_int_t luo_list_init(luo_list_t *list, luo_pool_t *pool,
 
 	return LUO_OK;
 }
-
-// 添加链表元素
-void *luo_list_push(luo_list_t *list);
 
 #endif /* _LUO_LIST_H_INCLUDED_ */
