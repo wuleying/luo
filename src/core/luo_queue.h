@@ -85,9 +85,10 @@ struct luo_queue_s
 #define luo_queue_data(q, type, link)						\
 	(type *) ((u_char *) q - offsetof(type, link))
 
-// 队列的中间节点
+// 获取队列的中间节点
 luo_queue_t *luo_queue_middle(luo_queue_t *queue);
 
+// 队列排序
 void luo_queue_sort(luo_queue_t *queue,
 		luo_int_t (*cmp)(const luo_queue_t *, const luo_queue_t *));
 
