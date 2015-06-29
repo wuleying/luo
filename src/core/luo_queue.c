@@ -49,7 +49,7 @@ void luo_queue_sort(luo_queue_t *queue,
 		return;
 	}
 
-	for (q = luo_queue_next(q); q != luo_queue_sendinel(queue); q = next)
+	for (q = luo_queue_next(q); q != luo_queue_sentinel(queue); q = next)
 	{
 		// 前驱节点
 		prev = luo_queue_prev(q);
@@ -68,7 +68,7 @@ void luo_queue_sort(luo_queue_t *queue,
 
 			prev = luo_queue_prev(prev);
 
-		} while (prev != luo_queue_sendinel(queue));
+		} while (prev != luo_queue_sentinel(queue));
 
 		// 将q节点插入到prev节点之前
 		luo_queue_insert_after(prev, q);

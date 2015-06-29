@@ -22,5 +22,6 @@ typedef struct luo_chain_s luo_chain_t;
 #include "luo_string.h"
 #include "luo_log.h"
 #include "luo_palloc.h"
+#include "luo_queue.h"
 
 #endif
