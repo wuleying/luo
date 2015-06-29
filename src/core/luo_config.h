@@ -15,4 +15,8 @@ typedef intptr_t luo_flag_t;
 #define luo_align_ptr(p, a)														\
 		(u_char *) (((uintptr_t) (p) + ((uintptr_t) a - 1)) & ~((uintptr_t) a - 1))
 
+#ifndef luo_inline
+#define luo_inline inline
+#endif
+
 #endif /* _LUO_CONFIG_H_INCLUDED_ */

@@ -20,7 +20,7 @@ struct luo_queue_s
 	(q)->prev = q;											\
 	(q)->next = q
 
-// 空队列
+// 判断队列是否为空
 #define luo_queue_empty(h)									\
 	(h == (h)->prev)
 
@@ -88,7 +88,7 @@ struct luo_queue_s
 // 获取队列的中间节点
 luo_queue_t *luo_queue_middle(luo_queue_t *queue);
 
-// 队列排序
+// 队列排序 稳定的插入排序
 void luo_queue_sort(luo_queue_t *queue,
 		luo_int_t (*cmp)(const luo_queue_t *, const luo_queue_t *));
 

@@ -22,6 +22,7 @@ luo_queue_middle(luo_queue_t *queue)
 
 		next = luo_queue_next(next);
 
+		// 偶数个节点 返回后半个队列的第一个节点
 		if (next == luo_queue_last(queue))
 		{
 			return middle;
@@ -29,6 +30,7 @@ luo_queue_middle(luo_queue_t *queue)
 
 		next = luo_queue_next(next);
 
+		// 奇数个节点 返回中间节点
 		if (next == luo_queue_last(queue))
 		{
 			return middle;
