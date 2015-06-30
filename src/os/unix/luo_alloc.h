@@ -1,8 +1,8 @@
 #ifndef _LUO_ALLOC_H_INCLUDED_
 #define _LUO_ALLOC_H_INCLUDED_
 
-#include "./../../core/luo_config.h"
-#include "./../../core/luo_core.h"
+#include "../../core/luo_config.h"
+#include "../../core/luo_core.h"
 
 // 分配长度为size字节的内存块
 void *luo_alloc(size_t size, luo_log_t *log);

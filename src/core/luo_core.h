@@ -15,8 +15,8 @@ typedef struct luo_chain_s luo_chain_t;
 #define LUO_DECLINED	-5
 #define LUO_ABORT		-6
 
-#include "./../os/unix/luo_alloc.h"
-#include "./../os/unix/luo_files.h"
+#include "../os/unix/luo_alloc.h"
+#include "../os/unix/luo_files.h"
 #include "../os/unix/luo_errno.h"
 
 #include "luo_string.h"

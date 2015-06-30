@@ -1,5 +1,5 @@
-#include "./../../core/luo_config.h"
-#include "./../../core/luo_core.h"
+#include "../../core/luo_config.h"
+#include "../../core/luo_core.h"
 
 luo_uint_t luo_pagesize;
 luo_uint_t luo_pagesize_shift;
