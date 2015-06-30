@@ -15,9 +15,13 @@ typedef struct luo_chain_s luo_chain_t;
 #define LUO_DECLINED	-5
 #define LUO_ABORT		-6
 
+#include "luo_rbtree.h"
+
 #include "../os/unix/luo_alloc.h"
 #include "../os/unix/luo_files.h"
 #include "../os/unix/luo_errno.h"
+#include "../os/unix/luo_time.h"
+#include "../os/unix/luo_atomic.h"
 
 #include "luo_string.h"
 #include "luo_log.h"
@@ -25,5 +29,6 @@ typedef struct luo_chain_s luo_chain_t;
 #include "luo_queue.h"
 #include "luo_list.h"
 #include "luo_array.h"
+#include "luo_times.h"
 
 #endif
